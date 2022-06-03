@@ -38,7 +38,7 @@ function Table({ columns, data }) {
     state: { pageIndex, pageSize }, } = useTable({
       columns,
       data,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0,pageSize:20 },
     },
       usePagination)
 
@@ -77,7 +77,7 @@ function Table({ columns, data }) {
       </MaUTable>
       <TablePagination
 
-        rowsPerPageOptions={[10, 20, 30, 40, 50]}
+        rowsPerPageOptions={[10, 20,  50,100]}
         component="div"
         count={rows.length}
         rowsPerPage={pageSize}
