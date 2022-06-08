@@ -103,33 +103,31 @@ export const registrar = (data, store) => {
         });
 }
 const formater = (data) => {
-    let array = [];	
-    data.map((e,i)=>{
-        if(e.event_id==1){
-            array.push({
-                Header: e.name.toUpperCase(),
-                columns: [
-                  {
+    let array = [];
+    data.map((e, i) => {
+        array.push({
+            Header: e.name.toUpperCase(),
+            columns: [
+                {
                     Header: 'POINTS',
-                    accessor: 'score'+i,
-                  },
-                  {
+                    accessor: 'score' + e.id,
+                },
+                {
                     Header: 'RANK',
-                    accessor: 'rank'+i,
-                  },
-                  {
+                    accessor: 'rank' + e.id,
+                },
+                {
                     Header: 'TIME/REP',
-                    accessor: 'value'+i,
-                  },
-                ],
-              },);
-        }
+                    accessor: 'value' + e.id,
+                },
+            ],
+        });
     })
     return array
 }
 export const obtenerTodos = (setData) => {
 
-    let url = ENTRYPOINT + "steps"
+    let url = ENTRYPOINT + "open_steps"
     let setting = {
         method: "Get",
         url: url,

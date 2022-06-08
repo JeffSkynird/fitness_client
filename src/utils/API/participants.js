@@ -111,14 +111,14 @@ const formater = (data) => {
             firstName: e.people.names,
             lastName: e.people.last_names,
             fullname: e.people.names + " " + e.people.last_names,
-            categoria:e.categories[0].name,
-            box: e.boxes[0].name.toUpperCase(),
+            categoria:e.categories.name,
+            box: e.boxes.name.toUpperCase(),
             total:Number(e.total_score)
         }
         e.points.map((p,i)=>{
-            temp["score"+i] = Number(p.score)
-            temp["rank"+i] = p.position
-            temp["value"+i] = p.value
+            temp["score"+p.step_id] = Number(p.score)
+            temp["rank"+p.step_id] = p.position
+            temp["value"+p.step_id] = p.value
         })
         array.push(temp);
     })
