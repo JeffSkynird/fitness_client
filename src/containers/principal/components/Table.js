@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import SearchIcon from '@material-ui/icons/Search';
-import { usePagination, useTable } from 'react-table'
+import { usePagination, useSortBy, useTable } from 'react-table'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import makeData from './makeData'
 import { Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles, MenuItem, OutlinedInput, Select, TablePagination, Typography, useMediaQuery, useTheme } from '@material-ui/core'
@@ -40,6 +40,7 @@ function Table({ columns, data }) {
       data,
       initialState: { pageIndex: 0,pageSize:20 },
     },
+    useSortBy,
       usePagination)
 
   // Render the UI for your table
@@ -50,7 +51,7 @@ function Table({ columns, data }) {
           {headerGroups.map(headerGroup => (
             <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <TableCell {...column.getHeaderProps()} align="center">
+                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center">
                   {column.render('Header')}
                 </TableCell>
               ))}
