@@ -10,7 +10,10 @@ import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
 
 import Logo from '../assets/images/logo.png'
+import Logo1 from '../assets/images/011.png'
 import { Avatar, Button, makeStyles } from '@material-ui/core';
+//history react router
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -51,6 +54,7 @@ HideOnScroll.propTypes = {
 };
 
 export default function HideAppBar(props) {
+    const history = useHistory();
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -63,9 +67,10 @@ export default function HideAppBar(props) {
                         <Typography variant="h6" className={classes.title}>
 
                         </Typography>
-                        <Button color="default" style={{ color: 'white' }}>Open</Button>
+                        <Button color="default" style={{ color: 'white' }} onClick={()=>history.push('/')}>Open</Button>
                         <Button color="inherit" style={{ color: 'white', marginRight: 15 }}>Finales</Button>
-                        <Avatar alt="Rodrigo" style={{ height: 35, width: 35 }} />
+                        <Button color="inherit" style={{ color: 'white', marginRight: 15 }} onClick={()=>history.push('/cards')}>Score Cards</Button>
+                        <Avatar alt="Rodrigo" style={{background:'black' }} src={Logo1}/>
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>

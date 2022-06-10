@@ -58,7 +58,7 @@ function Table({ columns, data }) {
           {headerGroups.map(headerGroup => (
             <TableRow {...headerGroup.getHeaderGroupProps()} style={{padding:0,}}>
               {headerGroup.headers.map(column => (
-                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center" style={{ borderLeft: '1.6px solid rgba(224, 224, 224, 1)' }}>
+                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center" style={{ borderLeft: '1.6px solid rgba(224, 224, 224, 1)' ,cursor:'pointer'}}>
                   {column.render('Header')}
                 </TableCell>
               ))}

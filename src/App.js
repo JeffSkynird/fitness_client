@@ -32,6 +32,7 @@ import Control from './containers/Inventario/Control/Index'
 import Redirecting from './containers/Redirect'
 import Seguridad from './containers/Inventario/Seguridad'
 import { green, red } from '@material-ui/core/colors';
+import Vista from './containers/vistaPdf/Vista';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -40,7 +41,7 @@ function Alert(props) {
 export default function App(props) {
   const { usuario, notificacion, mostrarNotificacion, loader, sound, playSound } = useContext(Initializer);
   let history = useHistory();
-  const [colorP, setColorP] = useState(green)
+  const [colorP, setColorP] = useState(red)
   const [colorS, setColorS] = useState(red)
   const [white, setWhite] = useState(createMuiTheme({
     palette: {
@@ -145,7 +146,9 @@ export default function App(props) {
           
                 <Switch>
                   <Route exact path="/" component={Main} />
+                  <Route exact path="/cards" component={Vista} />
                   <Route render={() => <Redirect to="/" />} />
+                  
                 </Switch>
             
           </Grid>
