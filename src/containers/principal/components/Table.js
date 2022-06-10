@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { usePagination, useSortBy, useTable } from 'react-table'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import makeData from './makeData'
-import { Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles, MenuItem, OutlinedInput, Select, TablePagination, Typography, useMediaQuery, useTheme } from '@material-ui/core'
+import { Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles, MenuItem, OutlinedInput, Select, TablePagination, Typography, useMediaQuery, useTheme, withStyles } from '@material-ui/core'
 import { obtenerTodos } from '../../../utils/API/participants'
 import { obtenerTodos as obtenerTodosEvents } from '../../../utils/API/steps'
 import { obtenerTodos as obtenerTodosCategories } from '../../../utils/API/category'
@@ -22,6 +22,13 @@ const useStyles = makeStyles({
     }
   }
 });
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
 function Table({ columns, data }) {
   const theme = useTheme();
   const classes = useStyles();
@@ -51,7 +58,7 @@ function Table({ columns, data }) {
           {headerGroups.map(headerGroup => (
             <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center">
+                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center" style={{ borderLeft: '1.6px solid rgba(224, 224, 224, 1)' }}>
                   {column.render('Header')}
                 </TableCell>
               ))}
@@ -62,15 +69,16 @@ function Table({ columns, data }) {
           {page.map((row, i) => {
             prepareRow(row)
             return (
-              <TableRow {...row.getRowProps()}>
+              <StyledTableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
+                
                   return (
                     <TableCell {...cell.getCellProps()} >
-                      {cell.render('Cell')}
+                      {cell.render('Cell')}{cell.column.Header=="RANK"?'°':''}{cell.column.Header=="POINTS"?' pts':''} 
                     </TableCell>
                   )
                 })}
-              </TableRow>
+              </StyledTableRow>
             )
           })}
         </TableBody>
