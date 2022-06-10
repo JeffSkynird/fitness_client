@@ -53,10 +53,10 @@ function Table({ columns, data }) {
   // Render the UI for your table
   return (
     <div>
-      <MaUTable {...getTableProps()} style={{ marginTop: 5, overflowX: 'auto', display: matches ? 'block' : 'auto' }} className={classes.table}>
+      <MaUTable {...getTableProps()} style={{ marginTop: 5, overflowX: 'auto', display: matches ? 'block' : 'auto' }} className={classes.table} >
         <TableHead>
           {headerGroups.map(headerGroup => (
-            <TableRow {...headerGroup.getHeaderGroupProps()}>
+            <TableRow {...headerGroup.getHeaderGroupProps()} style={{padding:0,}}>
               {headerGroup.headers.map(column => (
                 <TableCell {...column.getHeaderProps(column.getSortByToggleProps())} align="center" style={{ borderLeft: '1.6px solid rgba(224, 224, 224, 1)' }}>
                   {column.render('Header')}
@@ -71,10 +71,10 @@ function Table({ columns, data }) {
             return (
               <StyledTableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                
+                  console.log(cell.column.id=="num")
                   return (
-                    <TableCell {...cell.getCellProps()} >
-                      {cell.render('Cell')}{cell.column.Header=="RANK"?'°':''}{cell.column.Header=="POINTS"?' pts':''} 
+                    <TableCell {...cell.getCellProps()} style={{padding:14}}>
+                      {cell.render('Cell')}{(cell.column.Header=="RANK"&&cell.column.id!="num")?'°':''}{cell.column.Header=="POINTS"?' pts':''} 
                     </TableCell>
                   )
                 })}
