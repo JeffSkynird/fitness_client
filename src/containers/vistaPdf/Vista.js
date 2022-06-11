@@ -22,7 +22,7 @@ export default function Vista() {
                 <Chip label="Evento 3 - 4" onClick={() => cambiar(SCORE_CARD_3)} />
             </Grid>
             <Grid item xs={12}>
-            <object data={type} type="application/pdf" style={{width:'100%',height:500}}>
+            <object data={type} type="application/pdf" style={{width:'100%',height:'100vh'}}>
                 <embed src={type} type="application/pdf" />
             </object>
             </Grid>
