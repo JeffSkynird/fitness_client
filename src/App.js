@@ -33,7 +33,7 @@ import Redirecting from './containers/Redirect'
 import Seguridad from './containers/Inventario/Seguridad'
 import { green, red } from '@material-ui/core/colors';
 import Vista from './containers/vistaPdf/Vista';
-
+import Final from './containers/final'
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -147,6 +147,8 @@ export default function App(props) {
                 <Switch>
                   <Route exact path="/" component={Main} />
                   <Route exact path="/cards" component={Vista} />
+                  <Route exact path="/final" component={Final} />
+
                   <Route render={() => <Redirect to="/" />} />
                   
                 </Switch>

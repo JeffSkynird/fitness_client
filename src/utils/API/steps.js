@@ -125,11 +125,12 @@ const formater = (data) => {
     })
     return array
 }
-export const obtenerTodos = (setData) => {
+export const obtenerTodos = (setData,is_final) => {
 
     let url = ENTRYPOINT + "open_steps"
     let setting = {
         method: "Get",
+        params:{is_final:is_final},
         url: url,
         headers: { 'Accept': 'application/json' }
 

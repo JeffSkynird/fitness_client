@@ -140,8 +140,8 @@ function App() {
 
   const data = React.useMemo(() => makeData(5), [])
   React.useEffect(() => {
-    obtenerTodos(setDatos, setDatosResp, 1,false)
-    obtenerTodosEvents(setDatos2,false)
+    obtenerTodos(setDatos, setDatosResp, 1,true)
+    obtenerTodosEvents(setDatos2,true)
     obtenerTodosCategories(setCategoryData)
   }, [])
 
@@ -186,7 +186,7 @@ function App() {
     setDatos(temp)
   }
   const searchByCategory = (cat) => {
-    obtenerTodos(setDatos, setDatosResp, cat,false)
+    obtenerTodos(setDatos, setDatosResp, cat,true)
     setCategory(cat)
   }
   return (
@@ -195,7 +195,7 @@ function App() {
 
       <Grid container spacing={2} style={{ paddingLeft: 5, paddingRight: 5 }}>
         <Grid item xs={12}>
-          <Typography variant="h4" color="initial" style={{ fontWeight: 'bold' }}>OPEN LEADERBOARD</Typography>
+          <Typography variant="h4" color="initial" style={{ fontWeight: 'bold' }}>FINAL LEADERBOARD</Typography>
         </Grid>
         <Grid item xs={6}>
           <FormControl variant='outlined' style={{ width: '100%' }} size="small">

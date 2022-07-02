@@ -124,14 +124,14 @@ const formater = (data) => {
     })
     return array
 }
-export const obtenerTodos = (setData,setData2,filter) => {
+export const obtenerTodos = (setData,setData2,filter,is_final) => {
 
     let url = ENTRYPOINT + "participants"
     let setting = {
         method: "Get",
         url: url,
         params:{
-            category_id:filter
+            category_id:filter,is_final:is_final
         },
         headers: { 'Accept': 'application/json' }
 

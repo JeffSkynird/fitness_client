@@ -68,7 +68,7 @@ export default function HideAppBar(props) {
 
                         </Typography>
                         <Button color="default" style={{ color: 'white' }} onClick={()=>history.push('/')}>Open</Button>
-                        <Button color="inherit" style={{ color: 'white', marginRight: 15 }}>Finales</Button>
+                        <Button color="inherit" style={{ color: 'white', marginRight: 15 }} onClick={()=>history.push('/final')}>Finales</Button>
                         <Button color="inherit" style={{ color: 'white', marginRight: 15 }} onClick={()=>history.push('/cards')}>Score Cards</Button>
                         <Avatar alt="Rodrigo" style={{background:'black' }} src={Logo1}/>
                     </Toolbar>
