@@ -145,9 +145,10 @@ export default function App(props) {
           <Grid item xs={12}>
           
                 <Switch>
-                  <Route exact path="/" component={Main} />
+                  <Route exact path="/" component={Final} />
                   <Route exact path="/cards" component={Vista} />
                   <Route exact path="/final" component={Final} />
+                  <Route exact path="/open" component={Main} />
 
                   <Route render={() => <Redirect to="/" />} />
                   
